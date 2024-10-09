@@ -1,0 +1,13 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/Portal RFID/App/bin/Debug
+/Portal RFID/App/obj
+/Portal RFID/packages
+/Portal RFID/Portal_WebAPI/bin
+/Portal RFID/Portal_WebAPI/obj
+/Portal RFID/RFID_WindowsService/obj
+/Portal RFID/Servico/bin/Debug
+/Portal RFID/Servico/obj/Debug
+/Portal RFID/Servico/obj/Release
