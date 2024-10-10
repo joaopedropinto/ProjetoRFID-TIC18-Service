@@ -1,0 +1,6 @@
+@Cepedi.ProjetoRIFD.Leitura.Api_HostAddress = http://localhost:5106
+
+GET {{Cepedi.ProjetoRIFD.Leitura.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
