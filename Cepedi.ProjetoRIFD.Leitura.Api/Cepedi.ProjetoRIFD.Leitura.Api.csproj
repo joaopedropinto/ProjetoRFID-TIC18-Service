@@ -7,12 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cepedi.ProjetoRFID.Leitura.Domain\Cepedi.ProjetoRFID.Leitura.Domain.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+  <Reference Include="ThingMagic">
+    <HintPath>C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\Biblioteca ThigMagic\MercuryAPI.dll</HintPath>
+  </Reference>
+</ItemGroup>
 
 </Project>

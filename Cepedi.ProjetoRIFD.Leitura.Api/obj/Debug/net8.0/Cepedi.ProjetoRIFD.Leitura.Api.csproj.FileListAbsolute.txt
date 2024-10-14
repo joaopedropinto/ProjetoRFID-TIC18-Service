@@ -32,3 +32,12 @@ C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\obj\Debu
 C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\obj\Debug\net8.0\Cepedi.ProjetoRIFD.Leitura.Api.pdb
 C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\obj\Debug\net8.0\Cepedi.ProjetoRIFD.Leitura.Api.genruntimeconfig.cache
 C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\obj\Debug\net8.0\ref\Cepedi.ProjetoRIFD.Leitura.Api.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\System.Web.Cors.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\System.Web.Http.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\System.Web.Http.Cors.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\Cepedi.ProjetoRFID.Leitura.Domain.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\MercuryAPI.dll
+C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\bin\Debug\net8.0\Cepedi.ProjetoRFID.Leitura.Domain.pdb

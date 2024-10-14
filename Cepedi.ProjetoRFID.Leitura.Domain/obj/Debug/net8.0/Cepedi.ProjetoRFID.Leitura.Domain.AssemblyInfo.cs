@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cepedi.ProjetoRFID.Leitura.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23f5bdf7af78b0dcfe8aef7a55a7908b55c2a471")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b46b13a0171185e24534b753f6e7026f1a288517")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cepedi.ProjetoRFID.Leitura.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cepedi.ProjetoRFID.Leitura.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

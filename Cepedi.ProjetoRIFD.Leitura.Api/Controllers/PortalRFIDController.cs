@@ -1,15 +1,14 @@
 ﻿using Cepedi.ProjetoRFID.Leitura.Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
-using Portal_WebAPI.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+// using System.Net.Http;
+// using System.Web.Http;
 using System.Web.Http.Cors;
+using Microsoft.AspNetCore.Mvc;
 // Reference the API
 using ThingMagic;
 
@@ -18,9 +17,10 @@ namespace Portal_WebAPI.WebAPI.Controllers
     /// <summary>
     /// Classe de definição do serviço Portal_RFID.
     /// </summary>
-    public class PortalRFIDController : ApiController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PortalRFIDController : ControllerBase
     {
-
         /// <summary>
         /// Retorna a mesma string recebida.
         /// </summary>
@@ -181,7 +181,8 @@ namespace Portal_WebAPI.WebAPI.Controllers
                     }
 
                     // Create a simplereadplan which uses the antenna list created above
-                    SimpleReadPlan plan = new SimpleReadPlan(antennaList, TagProtocol.GEN2, new TagData(filtro), null, 1000);
+                    string filterTeste = filtro ?? string.Empty;
+                    SimpleReadPlan plan = new SimpleReadPlan(antennaList, TagProtocol.GEN2, new TagData(filterTeste), null, 1000);
 
                     // Configura para conseguir ler a tag que causou problemas de leitura durante os testes.
                     r.ParamSet("/reader/gen2/tagEncoding", Gen2.TagEncoding.FM0);
@@ -237,12 +238,12 @@ namespace Portal_WebAPI.WebAPI.Controllers
             }
             catch (ReaderException re)
             {
-                Console.WriteLine("Error: " + re.Message);
+                Console.WriteLine("Error123: " + re.Message);
                 tags = null;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error321: " + ex.Message);
                 tags = null;
             }
 
