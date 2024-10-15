@@ -5,19 +5,12 @@ using ThingMagic;
 
 namespace Portal_WebAPI.WebAPI.Controllers
 {
-    /// <summary>
     /// Classe de definição do serviço Portal_RFID.
-    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class PortalRFIDController : ControllerBase
     {
-        /// <summary>
         /// Retorna a mesma string recebida.
-        /// </summary>
-        /// Criada para ser utilizada para teste.
-        /// <param name="value">Parâmetro de entrada.</param>
-        /// <returns>O mesmo parâmetro de entrada (eco).</returns>
         [HttpPost]
         [Route("api/GetEcho")]
         public string GetEcho(string value)
@@ -25,10 +18,7 @@ namespace Portal_WebAPI.WebAPI.Controllers
             return string.Format("{0}", value);
         }
 
-        /// <summary>
         /// Sinaliza se o leitor RFID e suas antenas estão OKs.
-        /// </summary>
-        /// <returns>Sinalização de que o leitor RFID e suas antenas estão OKs.</returns>
         [HttpPost]
         [Route("api/IsReaderOk")]
         public bool IsReaderOk(string ipPorta)
@@ -60,9 +50,8 @@ namespace Portal_WebAPI.WebAPI.Controllers
             return readerOk;
         }
 
-        /// <summary>
         /// Retorna uma lista com todas as tags lidas seguindo os parâmetros informados
-        /// </summary>
+
         /// <param name="antNum">Número da antena a ser utilizada: Intervalo de 1 a 4. Caso selecione um valor fora desse intervalo, todas as antenas serão utilizadas</param>
         /// <param name="ipPorta">Ip:Porta do Reader. Ex: 172.16.10.52:8081</param>
         /// <param name="tempoLeitura">Tempo que o reader deve continuar lendo as tags em milisegundos (0 a 65535)</param>
@@ -241,6 +230,7 @@ namespace Portal_WebAPI.WebAPI.Controllers
             return tags;
         }
 
+        //Endpoint para receber os parâmetros via QueryString para facilitar o teste.
         [HttpPost]
         [Route("api/GetTagsRfidFromQueryString")]
         public List<TagRfidModel> GetTagsRfidFromQueryString(string queryString)
