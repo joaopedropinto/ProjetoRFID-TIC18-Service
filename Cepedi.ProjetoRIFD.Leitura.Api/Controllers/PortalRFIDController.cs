@@ -1,13 +1,4 @@
 ﻿using Cepedi.ProjetoRFID.Leitura.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Net;
-// using System.Net.Http;
-// using System.Web.Http;
-using System.Web.Http.Cors;
 using Microsoft.AspNetCore.Mvc;
 // Reference the API
 using ThingMagic;
