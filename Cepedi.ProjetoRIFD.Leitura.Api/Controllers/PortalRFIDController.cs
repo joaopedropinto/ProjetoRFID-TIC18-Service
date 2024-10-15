@@ -241,5 +241,25 @@ namespace Portal_WebAPI.WebAPI.Controllers
             return tags;
         }
 
+        [HttpPost]
+        [Route("api/GetTagsRfidFromQueryString")]
+        public List<TagRfidModel> GetTagsRfidFromQueryString(string queryString)
+        {
+            var queryParams = System.Web.HttpUtility.ParseQueryString(queryString);
+
+            int antNum = int.Parse(queryParams["antNum"]);
+            string ipPorta = queryParams["ipPorta"];
+            int tempoLeitura = int.Parse(queryParams["tempoLeitura"]);
+            bool readUser = bool.Parse(queryParams["readUser"]);
+            int potenciaPadrao = int.Parse(queryParams["potenciaPadrao"]);
+            int potenciaAntena1 = queryParams["potenciaAntena1"] != null ? int.Parse(queryParams["potenciaAntena1"]) : 0;
+            int potenciaAntena2 = queryParams["potenciaAntena2"] != null ? int.Parse(queryParams["potenciaAntena2"]) : 0;
+            int potenciaAntena3 = queryParams["potenciaAntena3"] != null ? int.Parse(queryParams["potenciaAntena3"]) : 0;
+            int potenciaAntena4 = queryParams["potenciaAntena4"] != null ? int.Parse(queryParams["potenciaAntena4"]) : 0;
+            string filtro = queryParams["filtro"];
+
+            return GetTagsRfid(antNum, ipPorta, tempoLeitura, readUser, potenciaPadrao, potenciaAntena1, potenciaAntena2, potenciaAntena3, potenciaAntena4, filtro);
+        }
+
     }
 }
