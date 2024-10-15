@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Cepedi.ProjetoRIFD.Leitura.Api.props" />
-</Project>
