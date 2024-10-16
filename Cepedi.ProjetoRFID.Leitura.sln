@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRIFD.Leitura.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Leitura.Domain", "Cepedi.ProjetoRFID.Leitura.Domain\Cepedi.ProjetoRFID.Leitura.Domain.csproj", "{9E7DAA26-DBDA-4917-A858-2F148A12B6DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Leitura.Infraestructure", "Cepedi.ProjetoRFID.Leitura.Infraestructure\Cepedi.ProjetoRFID.Leitura.Infraestructure.csproj", "{6BF09B38-3928-4F35-BB08-FA50C778A704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{9E7DAA26-DBDA-4917-A858-2F148A12B6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E7DAA26-DBDA-4917-A858-2F148A12B6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E7DAA26-DBDA-4917-A858-2F148A12B6DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF09B38-3928-4F35-BB08-FA50C778A704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF09B38-3928-4F35-BB08-FA50C778A704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF09B38-3928-4F35-BB08-FA50C778A704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF09B38-3928-4F35-BB08-FA50C778A704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
