@@ -5,5 +5,5 @@ namespace Cepedi.ProjetoRFID.Leitura.Domain.Interfaces;
 
 public interface ITagRfidModelService : IDisposable
 {
-
+    
 }
