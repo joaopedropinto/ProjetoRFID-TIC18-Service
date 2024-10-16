@@ -15,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-  <Reference Include="ThingMagic">
-    <HintPath>C:\Users\alber\ProjetoRFID-TIC18-Service\Cepedi.ProjetoRIFD.Leitura.Api\Biblioteca ThigMagic\MercuryAPI.dll</HintPath>
+  <Reference Include="Biblioteca ThigMagic\MercuryAPI.dll">
   </Reference>
 </ItemGroup>
 
