@@ -9,11 +9,6 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
     public GetTagRfidFlexService()
     {
     }
-    public Task<string> GetEcho(string value)
-    {
-        string result = string.Format("{0}", value);
-        return Task.FromResult(result);
-    }
     public Task<bool> IsReaderOk(string ipPorta)
     {
         bool readerOk = true;

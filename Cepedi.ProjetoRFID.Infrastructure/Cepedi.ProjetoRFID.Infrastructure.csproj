@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="..\Cepedi.ProjetoRFID.Infrastructure\Biblioteca ThigMagic\MercuryAPI.dll">
+    <Reference Include="\Biblioteca ThigMagic\MercuryAPI.dll">
   </Reference>
   </ItemGroup>
 

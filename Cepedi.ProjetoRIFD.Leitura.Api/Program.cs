@@ -9,7 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 
-builder.Services.AddSingleton<IGetTagRfidFlexService, GetTagRfidFlexService>();
+builder.Services.AddScoped<IGetTagRfidFlexService, GetTagRfidFlexService>();
 
 var app = builder.Build();
 
