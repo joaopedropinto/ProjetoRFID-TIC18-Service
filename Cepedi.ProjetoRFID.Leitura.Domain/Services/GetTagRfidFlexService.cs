@@ -4,12 +4,44 @@ using ThingMagic;
 
 namespace Cepedi.ProjetoRFID.Leitura.Domain.Services;
 
-public abstract class GetTagRfidFlexService : IGetTagRfidFlexService
+public class GetTagRfidFlexService : IGetTagRfidFlexService
 {
     public GetTagRfidFlexService()
     {
     }
+    public Task<string> GetEcho(string value)
+    {
+        string result = string.Format("{0}", value);
+        return Task.FromResult(result);
+    }
+    public Task<bool> IsReaderOk(string ipPorta)
+    {
+        bool readerOk = true;
 
+        try
+        {
+            Reader.SetSerialTransport("tcp", SerialTransportTCP.CreateSerialReader); //Cria a nova URI “tcp”
+
+            // Create Reader object, connecting to physical device.
+            // Wrap reader in a "using" block to get automatic
+            // reader shutdown (using IDisposable interface).
+            using (Reader r = Reader.Create("tcp://" + ipPorta)) //usar URI “IP do leitor:Porta 8081”
+            {
+                r.Connect();//conecta com o leitor.
+            }
+        }
+        catch (ReaderException re)
+        {
+            Console.WriteLine("Error: " + re.Message);
+            readerOk = false;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+            readerOk = false;
+        }
+        return Task.FromResult(readerOk);
+    }
     public Task<List<TagRfidModel>> GetTagRfidFlex(int[][] antenas, string ipPorta, string filtro, int tempoLeitura, bool lerMemoriaUsuario, int potenciaPadrao)
     {
         List<TagRfidModel> tags = new List<TagRfidModel>(); // Instancia a lista de tags.
@@ -136,4 +168,5 @@ public abstract class GetTagRfidFlexService : IGetTagRfidFlexService
 
         return Task.FromResult(tags);
     }
+
 }

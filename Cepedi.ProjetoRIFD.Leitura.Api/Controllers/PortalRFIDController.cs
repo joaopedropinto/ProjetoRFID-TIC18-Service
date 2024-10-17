@@ -19,43 +19,19 @@ namespace Portal_WebAPI.WebAPI.Controllers
         }
 
         /// Retorna a mesma string recebida.
-        [HttpPost]
+        [HttpGet]
         [Route("api/GetEcho")]
-        public string GetEcho(string value)
+        public Task<string> GetEcho(string value)
         {
-            return string.Format("{0}", value);
+            return _getTagRfidFlexService.GetEcho(value);
         }
 
         /// Sinaliza se o leitor RFID e suas antenas estão OKs.
-        [HttpPost]
+        [HttpGet]
         [Route("api/IsReaderOk")]
-        public bool IsReaderOk(string ipPorta)
+        public Task<bool> IsReaderOk(string ipPorta)
         {
-            bool readerOk = true;
-
-            try
-            {
-                Reader.SetSerialTransport("tcp", SerialTransportTCP.CreateSerialReader); //Cria a nova URI “tcp”
-
-                // Create Reader object, connecting to physical device.
-                // Wrap reader in a "using" block to get automatic
-                // reader shutdown (using IDisposable interface).
-                using (Reader r = Reader.Create("tcp://" + ipPorta)) //usar URI “IP do leitor:Porta 8081”
-                {
-                    r.Connect();//conecta com o leitor.
-                }
-            }
-            catch (ReaderException re)
-            {
-                Console.WriteLine("Error: " + re.Message);
-                readerOk = false;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                readerOk = false;
-            }
-            return readerOk;
+            return _getTagRfidFlexService.IsReaderOk(ipPorta);
         }
 
         [HttpGet]
