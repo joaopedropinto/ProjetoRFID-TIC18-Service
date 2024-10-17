@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Biblioteca ThigMagic\MercuryAPI.dll">
+  </Reference>
+  </ItemGroup>
+
 </Project>
