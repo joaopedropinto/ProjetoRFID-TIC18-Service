@@ -26,6 +26,7 @@ public class PortalRFIDController : ControllerBase
         return _getTagRfidFlexService.IsReaderOk(ipPorta);
     }
 
+
     /// Retorna uma lista com todas as tags lidas seguindo os parâmetros informados
     /// antNum - Número da antena a ser utilizada: Intervalo de 1 a 4. Caso selecione um valor fora desse intervalo, todas as antenas serão utilizadas
     /// ipPorta - Ip:Porta do Reader. Ex: 172.16.10.52:8081
@@ -77,6 +78,47 @@ public class PortalRFIDController : ControllerBase
             antenas = new int[][] { new int[] { antNum, potencia } };
         }
         List<TagRfidModel> tags = await _getTagRfidFlexService.GetTagRfidFlex(antenas, ipPorta, filtro, tempoLeitura, readUser, potenciaPadrao);
+
+        return Ok(tags);
+    }
+    [HttpGet]
+    [Route("api/GetTagsRfidAsync")]
+    public async Task<IActionResult> GetTagsRfidAsync(int antNum, string ipPorta, int tempoLeitura, bool readUser, int potenciaPadrao, int potenciaAntena1 = 0, int potenciaAntena2 = 0, int potenciaAntena3 = 0, int potenciaAntena4 = 0, string filtro = null)
+    {
+        int[][] antenas = null;
+
+        #region validações
+        tempoLeitura = tempoLeitura < 0 ? 0 : tempoLeitura > 65000 ? 65000 : tempoLeitura;
+        potenciaPadrao = potenciaPadrao <= 0 ? 100 : potenciaPadrao > 3000 ? 3000 : potenciaPadrao;
+        potenciaAntena1 = potenciaAntena1 <= 0 ? potenciaPadrao : potenciaAntena1 > 3000 ? 3000 : potenciaAntena1;
+        potenciaAntena2 = potenciaAntena2 <= 0 ? potenciaPadrao : potenciaAntena2 > 3000 ? 3000 : potenciaAntena2;
+        potenciaAntena3 = potenciaAntena3 <= 0 ? potenciaPadrao : potenciaAntena3 > 3000 ? 3000 : potenciaAntena3;
+        potenciaAntena4 = potenciaAntena4 <= 0 ? potenciaPadrao : potenciaAntena4 > 3000 ? 3000 : potenciaAntena4;
+        #endregion
+
+
+        if (antNum > 4 || antNum <= 0)
+        {
+            antenas = new int[][] { new int[] { 1, potenciaAntena1 }, new int[] { 2, potenciaAntena2 }, new int[] { 3, potenciaAntena3 }, new int[] { 4, potenciaAntena4 } };
+        }
+        else
+        {
+            var potencia = potenciaAntena1;
+            switch (antNum)
+            {
+                case 2:
+                    potencia = potenciaAntena2;
+                    break;
+                case 3:
+                    potencia = potenciaAntena3;
+                    break;
+                case 4:
+                    potencia = potenciaAntena4;
+                    break;
+            }
+            antenas = new int[][] { new int[] { antNum, potencia } };
+        }
+        List<TagRfidModel> tags = await _getTagRfidFlexService.GetTagRfidFlexAsync(antenas, ipPorta, filtro, tempoLeitura, readUser, potenciaPadrao);
 
         return Ok(tags);
     }

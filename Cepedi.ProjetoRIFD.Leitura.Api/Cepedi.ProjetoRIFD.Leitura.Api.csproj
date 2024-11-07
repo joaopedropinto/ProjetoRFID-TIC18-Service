@@ -14,9 +14,4 @@
     <ProjectReference Include="..\Cepedi.ProjetoRFID.Leitura.Domain\Cepedi.ProjetoRFID.Leitura.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-  <Reference Include="Biblioteca ThigMagic\MercuryAPI.dll">
-  </Reference>
-</ItemGroup>
-
 </Project>
