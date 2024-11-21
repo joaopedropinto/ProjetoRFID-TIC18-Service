@@ -81,6 +81,20 @@ public class PortalRFIDController : ControllerBase
 
         return Ok(tags);
     }
+
+    /// Retorna uma lista com todas as tags lidas seguindo os parâmetros informados
+    /// antNum - Número da antena a ser utilizada: Intervalo de 1 a 4. Caso selecione um valor fora desse intervalo, todas as antenas serão utilizadas
+    /// ipPorta - Ip:Porta do Reader. Ex: 172.16.10.52:8081
+    /// tempoLeitura - Tempo que o reader deve continuar lendo as tags em milisegundos (0 a 65535)
+    /// readUser - True: Ler a memória de usuário das tags (Isso pode aumentar o tempo de leitura considerávelmente).
+    /// potenciaPadrao - Potência de Leitura padrão (0 a 3150)centi-dBm
+    /// potenciaAntena1 - Potência de Leitura da antena 1 (0 a 3150)centi-dBm
+    /// potenciaAntena2 - Potência de Leitura da antena 2 (0 a 3150)centi-dBm
+    /// potenciaAntena3 - Potência de Leitura da antena 3 (0 a 3150)centi-dBm
+    /// potenciaAntena4 - Potência de Leitura da antena 4 (0 a 3150)centi-dBm
+    /// filtro - Filtro para o reader aplicar na busca das tags, ex: "52000" só vai retornar tags iniciadas com 52000.
+
+    /// Retorna uma lista com as tags lidas no tempo de leitura informado
     [HttpGet]
     [Route("api/GetTagsRfidAsync")]
     public async Task<IActionResult> GetTagsRfidAsync(int antNum, string ipPorta, int tempoLeitura, bool readUser, int potenciaPadrao, int potenciaAntena1 = 0, int potenciaAntena2 = 0, int potenciaAntena3 = 0, int potenciaAntena4 = 0, string filtro = null)

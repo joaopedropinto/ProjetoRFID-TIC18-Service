@@ -9,6 +9,7 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
     public GetTagRfidFlexService()
     {
     }
+    //Metodo para verificar se o leitor está ok.
     public Task<bool> IsReaderOk(string ipPorta)
     {
         bool readerOk = true;
@@ -37,7 +38,7 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
         }
         return Task.FromResult(readerOk);
     }
-
+    //Metodo para leitura de tags RFID com retorno de tags lidas naquele momento.
     public Task<List<TagRfidModel>> GetTagRfidFlex(int[][] antenas, string ipPorta, string filtro, int tempoLeitura, bool lerMemoriaUsuario, int potenciaPadrao)
     {
         List<TagRfidModel> tags = new List<TagRfidModel>(); // Instancia a lista de tags.
@@ -164,6 +165,7 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
 
         return Task.FromResult(tags);
     }
+    //Metodo para leitura de tags RFID com retorno de tags lidas em um tempo determinado.
     public Task<List<TagRfidModel>> GetTagRfidFlexAsync(int[][] antenas, string ipPorta, string filtro, int tempoLeitura, bool lerMemoriaUsuario, int potenciaPadrao)
     {
         List<TagRfidModel> tags = new List<TagRfidModel>(); // Instancia a lista de tags.
@@ -304,7 +306,7 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
         return Task.FromResult(tags);
     }
 
-    // Serviço de leitura de tags RFID em tempo real retornando as tags lidas no console.
+    // Serviço de leitura de tags RFID em tempo real retornando as tags lidas no console, não utilizado por enquanto.
 
     // public async Task<List<TagRfidModel>> GetTagRfidFlexAsyncLogging(int[][] antenas, string ipPorta, string filtro, int tempoLeitura, bool lerMemoriaUsuario, int potenciaPadrao)
     // {
