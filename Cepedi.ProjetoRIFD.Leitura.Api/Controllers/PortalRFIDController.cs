@@ -122,4 +122,33 @@ public class PortalRFIDController : ControllerBase
 
         return Ok(tags);
     }
+
+    // Controller da leitura assíncrona retornando todas as tags lidas no console log.
+
+    // [HttpPost("GetAsync")]
+    // public async Task<IActionResult> GetAsync([FromQuery] int durationSeconds)
+    // {
+    //     int[][] antenas = new int[][] 
+    //     { 
+    //         new int[] { 1, 3000 } // Antena 1 com potência 3000
+    //     };
+
+    //     string ipPorta = "172.16.10.50:8081";
+    //     string filtro = null;
+    //     bool lerMemoriaUsuario = false;
+    //     int potenciaPadrao = 3000;
+
+    //     antenas = new int[][] { new int[] { 1, potenciaPadrao } };
+
+    //     var tags = await _getTagRfidFlexService.GetTagRfidFlexAsyncLogging(
+    //         antenas,
+    //         ipPorta,
+    //         filtro,
+    //         durationSeconds * 1000,
+    //         lerMemoriaUsuario,
+    //         potenciaPadrao
+    //     );
+
+    //     return Ok(tags);
+    // }
 }

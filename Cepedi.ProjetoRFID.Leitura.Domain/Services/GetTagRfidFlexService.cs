@@ -304,4 +304,111 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
         return Task.FromResult(tags);
     }
 
+    // Serviço de leitura de tags RFID em tempo real retornando as tags lidas no console.
+
+    // public async Task<List<TagRfidModel>> GetTagRfidFlexAsyncLogging(int[][] antenas, string ipPorta, string filtro, int tempoLeitura, bool lerMemoriaUsuario, int potenciaPadrao)
+    // {
+    //     List<TagRfidModel> tags = new List<TagRfidModel>();
+    //     int[] antennaList = antenas.Select(a => a[0]).ToArray();
+
+    //     try
+    //     {
+    //         Reader.SetSerialTransport("tcp", SerialTransportTCP.CreateSerialReader);
+    //         using (Reader r = Reader.Create("tcp://" + ipPorta))
+    //         {
+    //             r.Connect();
+
+    //             if (Reader.Region.UNSPEC == (Reader.Region)r.ParamGet("/reader/region/id"))
+    //             {
+    //                 Reader.Region[] supportedRegions = (Reader.Region[])r.ParamGet("/reader/region/supportedRegions");
+    //                 if (supportedRegions.Length < 1)
+    //                 {
+    //                     throw new FAULT_INVALID_REGION_Exception();
+    //                 }
+    //                 r.ParamSet("/reader/region/id", supportedRegions[0]);
+    //             }
+
+    //             byte length;
+    //             string model = r.ParamGet("/reader/version/model").ToString();
+    //             if ((model.Equals("M6e Micro") || model.Equals("M6e Nano")) && antennaList == null)
+    //             {
+    //                 Console.WriteLine("Module doesn't have antenna detection support. Please provide antenna list.");
+    //             }
+    //             if ("M6e".Equals(model) || "M6e PRC".Equals(model) || "M6e Micro".Equals(model) || "Mercury6".Equals(model) || "Astra-EX".Equals(model))
+    //             {
+    //                 length = 0;
+    //             }
+    //             else
+    //             {
+    //                 length = 2;
+    //             }
+
+    //             string filterTeste = filtro ?? string.Empty;
+    //             SimpleReadPlan plan = new SimpleReadPlan(antennaList, TagProtocol.GEN2, new TagData(filterTeste), null, 1000);
+
+    //             r.ParamSet("/reader/gen2/tagEncoding", Gen2.TagEncoding.FM0);
+    //             r.ParamSet("/reader/gen2/session", Gen2.Session.S1);
+    //             r.ParamSet("/reader/gen2/target", Gen2.Target.A);
+    //             r.ParamSet("/reader/radio/readPower", potenciaPadrao);
+    //             r.ParamSet("/reader/radio/portReadPowerList", antenas);
+    //             r.ParamSet("/reader/read/plan", plan);
+
+    //             r.TagRead += (sender, args) =>
+    //             {
+    //                 TagReadData tagLida = args.TagReadData;
+    //                 TagRfidModel tag = new TagRfidModel
+    //                 {
+    //                     EpcValue = tagLida.EpcString,
+    //                     AntValue = tagLida.Antenna.ToString()
+    //                 };
+
+    //                 if (lerMemoriaUsuario)
+    //                 {
+    //                     TagFilter filter = new TagData(tagLida.EpcString);
+    //                     TagOp op = new Gen2.ReadData(Gen2.Bank.USER, 0, length);
+    //                     SimpleReadPlan planUser = new SimpleReadPlan(antennaList, TagProtocol.GEN2, filter, op, 1000);
+    //                     r.ParamSet("/reader/read/plan", planUser);
+    //                     TagReadData[] tagReadUser = r.Read(tempoLeitura / 2);
+
+    //                     if (tagReadUser.Length > 0)
+    //                     {
+    //                         tag.UserValue = ByteFormat.ToHex(tagReadUser[0].Data, "", "");
+    //                     }
+    //                     else
+    //                     {
+    //                         tag.UserValue = "";
+    //                     }
+    //                 }
+    //                 else
+    //                 {
+    //                     tag.UserValue = "";
+    //                 }
+
+    //                 tags.Add(tag);
+    //                 Console.WriteLine($"Tag Lida: EPC={tag.EpcValue}, Antena={tag.AntValue}, User={tag.UserValue}");
+    //             };
+
+    //             r.ReadException += (sender, args) =>
+    //             {
+    //                 Console.WriteLine($"Erro: {args.ReaderException.Message}");
+    //             };
+
+    //             r.StartReading();
+    //             await Task.Delay(tempoLeitura);
+    //             r.StopReading();
+    //         }
+    //     }
+    //     catch (ReaderException re)
+    //     {
+    //         Console.WriteLine($"ReaderException: {re.Message}");
+    //         return null;
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine($"Exception: {ex.Message}");
+    //         return null;
+    //     }
+
+    //     return tags;
+    // }
 }
