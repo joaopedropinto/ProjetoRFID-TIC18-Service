@@ -16,6 +16,14 @@ public class PortalRFIDController : ControllerBase
         _getTagRfidFlexService = getTagRfidFlexService;
     }
 
+    /// Retorna a mesma string recebida.
+    [HttpGet]
+    [Route("api/GetEcho")]
+    public Task<string> GetEcho(string value)
+    {
+        return _getTagRfidFlexService.GetEcho(value);
+    }
+
     /// Sinaliza se o leitor RFID e suas antenas estão OKs.
     /// ipPorta - Ip:Porta do Reader. Ex: 172.16.10.52:8081
     /// Retorna true se o reader estiver OK, false caso contrário   

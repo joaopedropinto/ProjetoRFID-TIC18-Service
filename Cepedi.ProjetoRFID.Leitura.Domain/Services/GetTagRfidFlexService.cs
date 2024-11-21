@@ -9,6 +9,12 @@ public class GetTagRfidFlexService : IGetTagRfidFlexService
     public GetTagRfidFlexService()
     {
     }
+    //Metodo para verificar se o serviço está funcionando.
+    public Task<string> GetEcho(string value)
+    {
+        string result = string.Format("{0}", value);
+        return Task.FromResult(result);
+    }
     //Metodo para verificar se o leitor está ok.
     public Task<bool> IsReaderOk(string ipPorta)
     {
